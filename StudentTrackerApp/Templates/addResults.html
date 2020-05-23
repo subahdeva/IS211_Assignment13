@@ -1,0 +1,70 @@
+{% extends "layout.html" %}
+{% block body %}
+
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col">
+            <form name="frmQResults" action="/results/add" method="post" enctype="multipart/form-data">
+                <table class="table table-hover table-sm">
+                    <thead>
+                      <tr>
+                        <th scope="col">Student</th>
+                        <th scope="col">Quiz</th>
+                        <th scope="col">Date Taken</th>
+                        <th scope="col">Score</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                        <![CDATA[
+                        {% for row in display %}
+                        ]]>
+                        <tr>
+                            <td>{{ row['student'] }}</td>
+                            <td>{{ row['subject'] }}</td>
+                            <td>{{ row['quiz_date'] }}</td>
+                            <td>{{ row['score'] }}</td>
+                            <td><a href="/results/delete/{{ row['id'] }}">Delete Entry</a></td>
+                        </tr>       
+                    </tbody>
+                  </table>
+        <![CDATA[
+        {% endfor %}
+        ]]>
+    <div class="row">
+        <div class="form-group col-2">
+                <select class="custom-select" name="student_id" id="student_id">
+                    <option value="sdefault">
+                        Pick a student
+                    </option>
+                    {% for stud in students %}
+                    <option value="{{ stud['student_id'] }}">{{ stud['student'] }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="form-group col-2">
+                <select class="custom-select" name="quiz_id" id="quiz_id">
+                    <option value="qdefault">
+                        Pick a quiz
+                    </option>
+                    {% for quiz in quizzes %}
+                    <option value="{{ quiz['quiz_id'] }}">{{ quiz['quiz'] }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="form-group col-2">
+                <input class="form-control" id="score" type="text" name="SCORE" placeholder="Add a grade"/>
+            </div>
+            <div class="form-group col-2">  
+                <input class="btn btn-success" type="submit" value="Add Score"/>
+            </div>
+            </div>
+        </div>
+    </form>
+</div>
+<![CDATA[ {% if message %} ]]>
+<div><strong>Delete SQL: </strong> {{ message }} </div>
+<![CDATA[ {% endif %} ]]>
+</body>
+</html>
+{% endblock %}

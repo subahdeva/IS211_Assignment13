@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+{% block body %}
+
+{% if message %}
+<p class="messge">{{ message }}{% endif %}
+<ul class="results">
+    {% for result in results %}
+        <li>{{ result.QUIZ_ID }}, {{ result.SCORE }}</li>
+    </ul>
+    {% endfor %}
+
+{% endblock %}

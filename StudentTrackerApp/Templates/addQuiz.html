@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+{% block body %}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col">
+<form action="{{ url_for('add_quiz') }}" method="post">
+    <div class="form-group col-4">
+      <label for="subject">Subject</label>
+      <input type="text" class="form-control" id="SUBJECT" name="SUBJECT">
+    </div>
+    <div class="form-group col-4">
+      <label for="num_questions">Number of Questions</label>
+      <input type="text" class="form-control" id="NUM_QUESTIONS" name="NUM_QUESTIONS">
+    </div>
+    <div class="form-group col-4">
+        <label for="quiz_date">Quiz Date</label>
+        <input type="text" class="form-control" id="QUIZ_DATE" name="QUIZ_DATE">
+    </div>
+    <div class="form-group col-4">
+    <input type="submit" class="btn btn-primary" value="Submit">
+    </div>
+  </form>
+</div>
+</div>
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+{% block body %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col">
+<form action="{{ url_for('add_student') }}" method="post">
+    <div class="form-group col-4">
+      <label for="firstName">First Name</label>
+      <input type="text" class="form-control" id="FIRST_NAME" name="FIRST_NAME">
+    </div>
+    <div class="form-group col-4">
+      <label for="lastName">Last Name</label>
+      <input type="text" class="form-control" id="LAST_NAME" name="LAST_NAME">
+    </div>
+    <div class="form-group col-4">
+    <input type="submit" class="btn btn-primary" value="Submit">
+    </div>
+  </form>
+</div>
+</div>
+</div>
+{% endblock %}
